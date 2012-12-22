@@ -19,7 +19,7 @@ class WPPUtils {
 		
 		if( ! WPPUtils::get_subscriber( $email ) ) {
 				
-			return $wpdb->insert( WPP_CUSTOM_TABLE , array( 'subscriber_email' => $email ) , array( '%s' ) );	
+			return $wpdb->insert( $wpdb->prefix . WPP_CUSTOM_TABLE , array( 'subscriber_email' => $email ) , array( '%s' ) );	
 			
 		}
 		
@@ -38,7 +38,7 @@ class WPPUtils {
 		
 		global $wpdb;
 		
-		return $wpdb->get_results( $wpdb->prepare( "SELECT `subscriber_email` FROM `". WPP_CUSTOM_TABLE . "`" ) , ARRAY_A );
+		return $wpdb->get_results( $wpdb->prepare( "SELECT `subscriber_email` FROM `" . $wpdb->prefix . WPP_CUSTOM_TABLE . "`" ) , ARRAY_A );
 		
 	}
 	
@@ -53,7 +53,7 @@ class WPPUtils {
 		
 		global $wpdb;
 		
-		return $wpdb->get_results( $wpdb->prepare( "SELECT * FROM `". WPP_CUSTOM_TABLE . "`" ) , ARRAY_A );
+		return $wpdb->get_results( $wpdb->prepare( "SELECT * FROM `". $wpdb->prefix . WPP_CUSTOM_TABLE . "`" ) , ARRAY_A );
 		
 	}
 	
@@ -68,7 +68,7 @@ class WPPUtils {
 		
 		global $wpdb;
 		
-		return $wpdb->get_row( $wpdb->prepare( "SELECT * FROM " . WPP_CUSTOM_TABLE . " WHERE subscriber_email = %s", $email ) , ARRAY_A );
+		return $wpdb->get_row( $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . WPP_CUSTOM_TABLE . " WHERE subscriber_email = %s", $email ) , ARRAY_A );
 		
 	}
 	
@@ -85,7 +85,7 @@ class WPPUtils {
 		
 		if( WPPUtils::get_subscriber( $email ) ) {
 				
-			return $wpdb->query( $wpdb->prepare( "DELETE FROM " . WPP_CUSTOM_TABLE . " WHERE subscriber_email = %s", $email ) );
+			return $wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . WPP_CUSTOM_TABLE . " WHERE subscriber_email = %s", $email ) );
 			
 		}
 		
@@ -104,7 +104,7 @@ class WPPUtils {
 		
 		global $wpdb;
 		
-		return $wpdb->get_var( "SELECT COUNT(*) FROM " . WPP_CUSTOM_TABLE );
+		return $wpdb->get_var( "SELECT COUNT(*) FROM " . $wpdb->prefix .WPP_CUSTOM_TABLE );
 		
 	}
 	

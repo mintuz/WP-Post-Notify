@@ -50,7 +50,7 @@ class WPPConfig {
 	*/
 	
 	public static function save_post( $post_id ) {
-
+		
 		//if post is published and not a revision
 		if( ( isset( $_POST[ 'btn-notify' ] ) ) && ( get_post_status( $post_id ) == 'publish' ) ) {
 		
@@ -64,7 +64,7 @@ class WPPConfig {
 			$subject = 'A new blog post has been published on ' . get_bloginfo( 'name' );
 			
 			if( $subscribers ) {
-			
+				
 				foreach( $subscribers as $subscriber ) {
 					
 					$args = array (
