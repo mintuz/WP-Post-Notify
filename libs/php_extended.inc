@@ -104,12 +104,8 @@ if ( ! function_exists( 'in_array_r' ) ) {
 if ( ! function_exists( 'dlog' ) ) {
 
 	function dlog( $output ) {
-		
-		if ( fpt_ip( ) ) {
 			
-			die( nlog( $output ) );
-		
-		}
+		die( nlog( $output ) );
 	
 	}
 
@@ -133,13 +129,8 @@ if ( ! function_exists( 'nlog' ) ) {
 		if ( is_array( $output ) || is_object( $output ) ) {
 			$output = print_r( $output, true );
 		}
-		
-		// only output for forepoint
-		if ( fpt_ip( ) ) {
 			
-			echo "<pre>" . $output . "</pre>" ;
-		
-		}
+		echo "<pre>" . $output . "</pre>" ;
 	
 	}
 
@@ -164,15 +155,6 @@ if ( ! function_exists( 'ltf' ) ) {
 		
 		if ( is_array( $output ) || is_object( $output ) ) {
 			$output = print_r( $output, true );
-		}
-		
-		// only log for forepoint
-		if ( fpt_ip( ) ) {
-					
-			$fh = fopen( $file, 'a' ) or die( "Failed opening file $file" );
-			fwrite( $fh, $output );
-			fclose( $fh );
-		
 		}
 	
 	}
@@ -243,24 +225,6 @@ if ( ! function_exists( 'rike' ) ) {
 			}
 		
 		}
-		
-	}
-
-}
-
-/*
- * check if forepoint ip
- *
- * @return return is ip is forepoint
- * @author Tim Perry
- */
-
-if ( ! function_exists( 'fpt_ip' ) ) {
-
-	function fpt_ip( ) {
-		
-		return true;
-		return ( $_SERVER[ 'REMOTE_ADDR' ] == '217.36.5.158' );	
 		
 	}
 

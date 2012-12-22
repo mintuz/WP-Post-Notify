@@ -17,13 +17,21 @@ class WPPUtils {
 		
 		global $wpdb;
 		
-		if( ! WPPUtils::get_subscriber( $email ) ) {
+		if( filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
+		
+			if( ! WPPUtils::get_subscriber( $email ) ) {
+					
+				$wpdb->insert( $wpdb->prefix . WPP_CUSTOM_TABLE , array( 'subscriber_email' => $email ) , array( '%s' ) );
 				
-			return $wpdb->insert( $wpdb->prefix . WPP_CUSTOM_TABLE , array( 'subscriber_email' => $email ) , array( '%s' ) );	
+				return "inserted";	
+				
+			}
 			
+			return "already_exists";
+		
 		}
 		
-		return false;
+		return "invalid_email";
 		
 	}
 	
