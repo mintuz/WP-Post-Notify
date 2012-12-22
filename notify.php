@@ -32,6 +32,7 @@ include WPP_DIR . '/classes/WPPTemplateTags.class.inc';
 include WPP_DIR . '/classes/WPPNotificationCentre.class.inc';
 include WPP_DIR . '/classes/WPPUtils.class.inc';
 include WPP_DIR . '/classes/WPPFrontendUI.class.inc';
+include WPP_DIR . '/classes/WPPWidget.class.inc';
 
 // Third Party Classes
 include WPP_DIR . '/libs/php_extended.inc';
@@ -48,6 +49,7 @@ include WPP_DIR . '/libs/php_extended.inc';
 register_activation_hook( __FILE__ , array( 'WPPConfig', 'install' ) );
 
 add_action( 'save_post', array( 'WPPConfig', 'save_post' ) );
+add_action( 'widgets_init', array( 'WPPConfig', 'widgets_init' ) );
 
 // ==================
 // ! WPPBackendUI

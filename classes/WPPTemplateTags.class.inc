@@ -38,9 +38,9 @@ class WPPTemplateTags {
 	?>
 	
 		<div class="wpp-subscribe-box" id="wpp-subscribe-box">
-			<p>Enter your email address to follow this blog and receive notifications of new posts by email.</p>
+			<p>Enter your email address to follow this blog and receive notifications of new posts by email.</p><br />
 
-			<p>Join <?php echo WPPUtils::count_subscribers(); ?> other followers</p>
+			<p>Join <?php echo WPPUtils::count_subscribers(); ?> other followers</p><br />
 			<form class="form-inline" action="/" method="post">
 				<input type="email" name="txt-email-address" class="input-small" placeholder="Your email address:">
 				<button type="submit" name="btn-subscribe" class="btn btn-primary">Subscribe</button>

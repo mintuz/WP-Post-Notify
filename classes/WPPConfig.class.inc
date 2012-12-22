@@ -99,6 +99,11 @@ class WPPConfig {
 		
 	} //save_post function
 	
+	public static function widgets_init() {
+		
+		register_widget( 'WPPWidget' );
+		
+	}
 	
 }
 
