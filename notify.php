@@ -18,7 +18,7 @@ Author URI: http://www.mintuz.com
 define( 'WPP_VERSION', '0.1' );
 define( 'WPP_DIR', WP_PLUGIN_DIR . '/' . basename( dirname(__FILE__) ) );
 define( 'WPP_URL', rtrim( plugin_dir_url( __FILE__ ), '/' ) );
-define( 'WPP_CUSTOM_TABLE' , 'wp_wpp_subscribers' );
+define( 'WPP_CUSTOM_TABLE' , 'wpp_subscribers' );
 
 // ==================
 // ! INCLUDES
