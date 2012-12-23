@@ -17,7 +17,11 @@
 		
 			global $post;
 			
-			add_meta_box( 'wpp-send-email' , 'WP Post Notify' , array( 'WPPBackendUI','send_email_box' ) , 'post', 'side', 'low' );
+			if( get_post_status( $post->ID ) == 'publish' ) {
+			
+				add_meta_box( 'wpp-send-email' , 'WP Post Notify' , array( 'WPPBackendUI','send_email_box' ) , 'post', 'side', 'low' );
+			
+			}
 			
 		}
 		
