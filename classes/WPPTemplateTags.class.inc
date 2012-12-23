@@ -41,8 +41,8 @@ class WPPTemplateTags {
 			<p>Enter your email address to follow this blog and receive notifications of new posts by email.</p><br />
 
 			<p>Join <?php echo WPPUtils::count_subscribers(); ?> other followers</p><br />
-			<form class="form-inline" action="/" method="post">
-				<input type="email" name="txt-email-address" class="input-small" placeholder="Your email address:">
+			<form class="form-inline" action="<?php echo current_url(); ?>" method="post">
+				<input type="email" name="txt-email-address" placeholder="Your email address:">
 				<button type="submit" name="btn-subscribe" class="btn btn-primary">Subscribe</button>
 				<?php echo ( $status ) ? $status : ''; ?>
 			</form>
